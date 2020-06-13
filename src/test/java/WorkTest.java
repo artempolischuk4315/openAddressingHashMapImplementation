@@ -7,7 +7,7 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-class TestClass {
+class WorkTest {
 
     private static final int NUMBER_OF_ELEMENTS =257;
     private static final int KEY = 1;
@@ -20,12 +20,11 @@ class TestClass {
 
     @BeforeEach
     void init(){
-         systemUnderTest = new HashMap();
+        systemUnderTest = new HashMap();
     }
 
     @Test
     void getSizeShouldReturnZeroIfSizeIsZero(){
-
 
         int expected = systemUnderTest.getSize();
         int actual = 0;
@@ -141,62 +140,4 @@ class TestClass {
 
         assertEquals(expected, actual);
     }
-
-
-   /* @Test
-    void test2() {
-        Map<Integer, Long> hashMap = new java.util.HashMap<Integer, Long>();
-
-        for(int i=0; i<10000000; i++) {
-            hashMap.put(i*23, (long)i);
-        }
-       /* for(long i =0; i<1000; i++) {
-            int kek =new Random().nextInt();
-            Long lol = hashMap.get(kek);
-            if(lol!=null)
-                System.out.println(lol);
-        }*/
-      /*  System.out.println(hashMap.size());
-    }*/
-
-   /* @Test
-    void test() {
-        HashMap hashMap = new HashMap();
-
-        for(int i =1; i<=100000; i++) {
-            hashMap.put(i*23, i);
-        }
-        System.out.println(hashMap.getSize());
-    }
-
-    @Test
-    void test3() {
-        HashMap hashMap = new HashMap();
-
-        for(long i =0; i<10000000; i++) {
-            hashMap.put(new Random().nextInt(), new Random().nextInt());
-        }
-        for(long i =0; i<10000000; i++) {
-            int kek =new Random().nextInt();
-            Long lol = hashMap.get(kek);
-            if(lol!=null)
-            System.out.println(lol);
-        }
-    }
-
-    @Test
-    void test4() {
-        HashMap hashMap = new HashMap();
-
-        for(int i=0; i<10000000; i++) {
-            hashMap.put(i, i);
-
-        }
-        for(int i =0; i<10000000; i++) {
-
-            Long lol = hashMap.get(i);
-            if(lol!=null)
-                System.out.println(lol);
-        }
-    }*/
 }

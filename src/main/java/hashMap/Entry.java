@@ -1,6 +1,6 @@
 package hashMap;
 
-public class Entry {
+class Entry {
 
     private int key;
 
@@ -13,21 +13,17 @@ public class Entry {
         this.value = value;
     }
 
-    public void setKey(int key) {
-        this.key = key;
-    }
-
-    public long getValue() {
+    long getValue() {
 
         return value;
     }
 
-    public void setValue(long value) {
+    void setValue(long value) {
 
         this.value = value;
     }
 
-    public int getKey() {
+    int getKey() {
 
         return key;
     }

@@ -2,15 +2,16 @@ package hashMap;
 
 public class HashMap {
 
-     private final static int STARTER_CAPACITY=32;
+    private final static int STARTER_CAPACITY=32;
+    private static final int RESIZE_COEF = 2;
 
-     private int capacity;
+    private int capacity;
 
-     private int size=0;
+    private int size = 0;
 
-     private final static double LOAD_FACTOR = 0.55;
+    private final static double LOAD_FACTOR = 0.55;
 
-     private Entry[] table;
+    private Entry[] table;
 
     public HashMap() {
 
@@ -68,15 +69,10 @@ public class HashMap {
        }
    }
 
-    public int getSize() {
-        return size;
-    }
-
     private void resize() {
         int oldCapacity = capacity;
 
-
-        capacity = oldCapacity*2;
+        capacity = oldCapacity* RESIZE_COEF;
 
         Entry[] oldTable = table;
 
@@ -90,5 +86,9 @@ public class HashMap {
                 put(oldTable[i].getKey(), oldTable[i].getValue());
             }
         }
+    }
+
+    public int getSize() {
+        return size;
     }
 }
