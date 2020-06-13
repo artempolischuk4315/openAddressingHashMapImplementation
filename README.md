@@ -1,4 +1,4 @@
-In this repository You can find HashMap with open addressing and quadratic probing collision resolution implemented by Artem Polishchuk.
+**In this repository You can find HashMap with open addressing and quadratic probing collision resolution implemented by Artem Polishchuk.**
 
 **********
 
@@ -7,7 +7,9 @@ https://stackoverflow.com/questions/664014/what-integer-hash-function-are-good-t
 
 **********
 
-Performance test
+**Performance test**
+
+Hardware: 8 GB RAM, Intel Core i5 7th Gen
 
 1000 iterations with insertion of random numbers where  number of insertions = {10 000, 100 000, 1 000 000, 10 000 000}
 ![1](https://user-images.githubusercontent.com/58078781/84572748-db143d80-ada4-11ea-9bd9-c62673148922.jpg)
