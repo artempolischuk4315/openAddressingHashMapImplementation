@@ -26,8 +26,8 @@ class WorkTest {
     @Test
     void getSizeShouldReturnZeroIfSizeIsZero(){
 
-        int expected = systemUnderTest.getSize();
-        int actual = 0;
+        int actual = systemUnderTest.getSize();
+        int expected = 0;
 
         assertEquals(expected, actual);
     }
@@ -39,8 +39,8 @@ class WorkTest {
             systemUnderTest.put(i, i);
         }
 
-        int expected = systemUnderTest.getSize();
-        int actual = NUMBER_OF_ELEMENTS;
+        int actual = systemUnderTest.getSize();
+        int expected = NUMBER_OF_ELEMENTS;
 
         assertEquals(expected, actual);
     }
@@ -52,8 +52,8 @@ class WorkTest {
             systemUnderTest.put(i, new Random().nextLong());
         }
 
-        int expectedSize = systemUnderTest.getSize();
-        int actualSize = MILLION;
+        int actualSize = systemUnderTest.getSize();
+        int expectedSize = MILLION;
 
         assertEquals(expectedSize, actualSize);
     }
