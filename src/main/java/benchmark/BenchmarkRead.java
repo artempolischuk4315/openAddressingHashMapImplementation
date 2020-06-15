@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
 @Warmup(iterations = 2)
-@Measurement(iterations = 10)
+@Measurement(iterations = 5)
 public class BenchmarkRead {
 
     private HashMap hashMap;
