@@ -1,23 +1,25 @@
 package hashMap;
 
+import java.util.Arrays;
+
 public class HashMap {
 
     private final static int STARTER_CAPACITY=32;
     private static final int RESIZE_COEF = 2;
-
-    private int capacity;
-
-    private int size = 0;
-
+    private final static int EMPTY_CELL = Integer.MIN_VALUE;
     private final static double LOAD_FACTOR = 0.55;
 
-    private Entry[] table;
+    private int capacity;
+    private int size = 0;
+
+    private int[] keys;
+    private long[] values;
 
     public HashMap() {
 
         this.capacity = STARTER_CAPACITY;
 
-        table = new Entry[capacity];
+        createKeyValuesArrays();
     }
 
     private int hashFirst(int x) {
@@ -33,7 +35,7 @@ public class HashMap {
 
         int i = 0;
 
-        while ((table[index] != null) && table[index].getKey() != key) {
+        while ((keys[index] != EMPTY_CELL) && keys[index] != key) {
             index = (index + i*i)&(capacity-1);
             i++;
         }
@@ -44,8 +46,8 @@ public class HashMap {
 
        int index = findCell(key);
 
-        if (table[index] != null) {
-            table[index].setValue(value);
+        if (keys[index] != EMPTY_CELL) {
+            values[index] = value;
             return;
         }
 
@@ -54,38 +56,45 @@ public class HashMap {
             index = findCell(key);
         }
 
-        table[index] = new Entry(key, value);
+        keys[index] = key;
+        values[index] = value;
         size++;
 
    }
 
    public Long get(int key){
-       int index =findCell(key);
+       int index = findCell(key);
 
-       if (table[index] != null) {
-           return table[index].getValue();
+       if (keys[index] != EMPTY_CELL) {
+           return values[index];
        } else {
            return null;
        }
    }
 
     private void resize() {
+
         int oldCapacity = capacity;
+        capacity = oldCapacity * RESIZE_COEF;
 
-        capacity = oldCapacity* RESIZE_COEF;
+        int[] oldKeys = keys;
+        long[] oldValues = values;
 
-        Entry[] oldTable = table;
+        createKeyValuesArrays();
 
-        table = new Entry[capacity];
-
-        size =0;
+        size = 0;
 
         for(int i = 0; i < oldCapacity; i++){
-
-            if(oldTable[i] != null){
-                put(oldTable[i].getKey(), oldTable[i].getValue());
+            if(oldKeys[i] != EMPTY_CELL){
+                put(oldKeys[i], oldValues[i]);
             }
         }
+    }
+
+    private void createKeyValuesArrays() {
+        keys = new int[capacity];
+        values = new long[capacity];
+        Arrays.fill(keys, EMPTY_CELL);
     }
 
     public int getSize() {
